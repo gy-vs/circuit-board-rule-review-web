@@ -1,0 +1,15 @@
+{
+  "name": "circuit-board-rule-review",
+  "version": "1.0.0",
+  "description": "本地运行的 PCB 走线审阅工作台：多铜层连接关系、网表预期与可解释的规则检查闭环",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test --test-reporter=spec test/"
+  },
+  "license": "MIT"
+}

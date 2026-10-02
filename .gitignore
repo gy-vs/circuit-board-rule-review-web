@@ -6,3 +6,5 @@ coverage/
 *.pem
 *.key
 .DS_Store
+data/
+*.log
