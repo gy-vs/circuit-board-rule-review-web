@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCB 走线审阅工作台</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header id="topbar">
+  <span class="brand">PCB 走线审阅工作台</span>
+  <span id="design-label" class="design-label"></span>
+  <span id="dirty-badge" class="badge hidden">未保存</span>
+  <span id="viewmode-badge" class="badge badge-history hidden">查看历史版本</span>
+  <span class="spacer"></span>
+  <label class="rule-input">净空规则
+    <input id="clearance-input" type="number" min="0" step="0.05" value="0.2"> mm
+  </label>
+  <label class="layer-toggle"><input type="checkbox" id="show-top" checked> 顶层</label>
+  <label class="layer-toggle"><input type="checkbox" id="show-bottom" checked> 底层</label>
+  <button id="btn-flip-layer" title="切换选中对象的铜层">换层</button>
+  <button id="btn-save" class="primary">保存</button>
+  <button id="btn-check" class="primary">运行检查</button>
+</header>
+
+<div id="banner" class="hidden"></div>
+
+<main>
+  <aside id="sidebar">
+    <section>
+      <h2>网络</h2>
+      <ul id="net-list" class="item-list"></ul>
+      <div id="net-detail" class="detail hidden"></div>
+    </section>
+    <section>
+      <h2>检查问题 <span id="finding-count"></span></h2>
+      <ul id="finding-list" class="item-list"></ul>
+      <div id="finding-detail" class="detail hidden"></div>
+    </section>
+    <section>
+      <h2>检查历史</h2>
+      <ul id="check-list" class="item-list"></ul>
+      <button id="btn-back-to-edit" class="hidden">返回当前编辑</button>
+    </section>
+  </aside>
+  <div id="canvas-wrap">
+    <canvas id="board"></canvas>
+    <div id="statusbar">
+      <span id="cursor-pos"></span>
+      <span id="status-hint">拖动移动对象 · 空白处拖动平移 · 滚轮缩放 · 点击选择</span>
+    </div>
+  </div>
+</main>
+
+<dialog id="conflict-dialog">
+  <h3>保存冲突</h3>
+  <p id="conflict-text"></p>
+  <div class="dialog-actions">
+    <button id="btn-conflict-reload">放弃我的修改，加载最新版</button>
+    <button id="btn-conflict-overwrite" class="danger">强制保存我的修改</button>
+    <button id="btn-conflict-cancel">取消</button>
+  </div>
+</dialog>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,8 +1,3 @@
-node_modules/
-dist/
-coverage/
-.env
-.env.*
-*.pem
-*.key
-.DS_Store
+*.db
+__pycache__/
+.pytest_cache/
